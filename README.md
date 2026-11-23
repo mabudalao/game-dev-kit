@@ -1,6 +1,6 @@
 # 游戏开发与脚本编写资料库
 
-一个从零开始的游戏开发学习仓库，涵盖**游戏框架搭建**、**游戏脚本编写**，以及**本地屏幕识图与自动化**三块。
+一个从零开始的游戏开发学习仓库，涵盖**游戏框架搭建**、**游戏脚本编写**、**本地屏幕识图与自动化**三块，并收录一套已经实跑过的实战框架。
 内容均为通用的、合法的游戏开发技术，不涉任何游戏的破解、外挂或作弊。
 
 ## 目录结构
@@ -9,7 +9,10 @@
 game-dev-kit/
 ├── frameworks/         游戏框架选型与搭建
 │   ├── README.md       主流引擎/框架对比、适用场景、快速上手
-│   └── turn_based.md   回合制游戏循环：设计骨架 + GitHub 优质项目清单
+│   ├── turn_based.md   回合制游戏循环：设计骨架 + GitHub 优质项目清单
+│   └── moli175/        175魔力：实跑过的回合制客户端自动化框架
+│       ├── README.md   循环骨架、7 个可借鉴设计点、四段已验证状态、已知卡点
+│       └── magic_loop.py   主脚本 1617 行 / 66 KB，零第三方依赖
 ├── scripts/            游戏脚本编写
 │   └── README.md       脚本架构、常用模式、设计规范
 ├── vision/             本地屏幕识图（只看自己屏幕像素）
@@ -31,6 +34,7 @@ game-dev-kit/
 3. 想直接跑代码 → `python examples/game_loop.py`（无需安装第三方库）
 4. 想做屏幕识图 → 看 [vision/README.md](vision/README.md)，需要 `pip install opencv-python`
 5. 想做本地自动化 → 看 [automation/README.md](automation/README.md)，先读“明确不做的”
+6. 想看实战完整循环 → 看 [frameworks/moli175/README.md](frameworks/moli175/README.md)
 
 ## 核心概念速览
 
@@ -44,6 +48,7 @@ game-dev-kit/
 | 资源热更新 | 配置与代码分离，改数值不用重新打包 |
 | 模板匹配 | `cv2.matchTemplate` + 灰度 + ROI + 多尺度，固定 UI 的基准方案 |
 | 屏幕 OCR | RapidOCR（ONNX 推理），CPU 毫秒级，处理会变的文字 |
+| 三态判定 | 识别结果分 True/False/None，读不出就不动手（见 moli175） |
 
 ## 许可
 
