@@ -2,8 +2,8 @@
 
 本目录收录一套**已经实跑过的**回合制客户端自动化框架（不是空壳），主脚本 `magic_loop.py`。
 
-- 来源：本机 `C:\Users\Administrator\Doubao\chats\2026-11-16\new-chat-1\magic_loop.py`（2026-11-20 12:51 版）
-- 规模：1617 行 / 66,394 字节
+- 来源：本机 `C:\Users\Administrator\Doubao\chats\2026-11-16\new-chat-1\magic_loop.py`
+- 规模：1617 行 / 66,394 字节，blob `66ea0bda…`（上传后校验与本机文件完全一致）
 - 依赖：零第三方库。截图走 ctypes PrintWindow，输入走 Win32 鼠标键盘事件，文字走 WinRT OCR
 - 边界：不抓包、不改包、不读进程内存、不访问网络（已对 socket / requests / urllib / ReadProcessMemory / SendMessage 等关键字逐条核查，均为 0）；只截自己的窗口、只发本地输入事件
 
@@ -44,7 +44,3 @@
 | 整圈闭环 | 未压测 |
 
 已知卡点：回城后到新练级点的位移会被拖图惯性放大（地图飞到莎莲娜岛）；小地图坐标 OCR 的两位数 Y 会被误读成汉字。
-
-## 文件状态
-
-`magic_loop.py` 待入库（66 KB 本地文件直传；GitHub 接口只支持整文件覆盖、不支持分段追加）。
