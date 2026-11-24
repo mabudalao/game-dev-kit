@@ -1,12 +1,14 @@
 # 游戏开发与脚本编写资料库
 
-一个从零开始的游戏开发学习仓库，涵盖**游戏框架搭建**、**游戏脚本编写**、**本地屏幕识图与自动化**三块，并收录一套已经实跑过的实战框架。
+一个从零开始的游戏开发学习仓库，涵盖**游戏框架搭建**、**游戏脚本编写**、**本地屏幕识图与自动化**三块，并收录一套已实跑过的实战框架与一份现成工具库索引。
 内容均为通用的、合法的游戏开发技术，不涉任何游戏的破解、外挂或作弊。
 
 ## 目录结构
 
 ```
 game-dev-kit/
+├── toolbox/            现成工具库索引（写脚本前先来这里找）
+│   └── README.md       抓屏/找图/OCR/标注/目标检测 分类清单 + 选择顺序
 ├── frameworks/         游戏框架选型与搭建
 │   ├── README.md       主流引擎/框架对比、适用场景、快速上手
 │   ├── turn_based.md   回合制游戏循环：设计骨架 + GitHub 优质项目清单
@@ -29,12 +31,13 @@ game-dev-kit/
 
 ## 从哪开始
 
-1. 想选框架 → 看 [frameworks/README.md](frameworks/README.md)
-2. 想学脚本架构 → 看 [scripts/README.md](scripts/README.md)
-3. 想直接跑代码 → `python examples/game_loop.py`（无需安装第三方库）
-4. 想做屏幕识图 → 看 [vision/README.md](vision/README.md)，需要 `pip install opencv-python`
-5. 想做本地自动化 → 看 [automation/README.md](automation/README.md)，先读“明确不做的”
-6. 想看实战完整循环 → 看 [frameworks/moli175/README.md](frameworks/moli175/README.md)
+1. 要写新脚本 → 先看 [toolbox/README.md](toolbox/README.md)，能复用就不自己写
+2. 想选框架 → 看 [frameworks/README.md](frameworks/README.md)
+3. 想学脚本架构 → 看 [scripts/README.md](scripts/README.md)
+4. 想直接跑代码 → `python examples/game_loop.py`（无需安装第三方库）
+5. 想做屏幕识图 → 看 [vision/README.md](vision/README.md)，需要 `pip install opencv-python`
+6. 想做本地自动化 → 看 [automation/README.md](automation/README.md)，先读“明确不做的”
+7. 想看实战完整循环 → 看 [frameworks/moli175/README.md](frameworks/moli175/README.md)
 
 ## 核心概念速览
 
@@ -47,6 +50,7 @@ game-dev-kit/
 | 回合调度 | 按速度排序的行动队列 + 行动状态机（见回合制示例） |
 | 资源热更新 | 配置与代码分离，改数值不用重新打包 |
 | 模板匹配 | `cv2.matchTemplate` + 灰度 + ROI + 多尺度，固定 UI 的基准方案 |
+| 基准分辨率 | 截图先缩到固定尺寸再识别，模板只需按基准截一次（MaaFramework 范式） |
 | 屏幕 OCR | RapidOCR（ONNX 推理），CPU 毫秒级，处理会变的文字 |
 | 三态判定 | 识别结果分 True/False/None，读不出就不动手（见 moli175） |
 
